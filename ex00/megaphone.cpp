@@ -6,11 +6,11 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:07:23 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/06 19:22:27 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/08 00:23:48 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include <string>
 #include <iostream>
 
 void	print_capital(std::string str)
@@ -26,7 +26,7 @@ void	print_capital(std::string str)
 			str[i] = str[i] - 32;
 		i++;
 	}
-	std::cout << str << std::ends;
+	std::cout << str;
 }
 
 int	main(int argc, char **argv)
@@ -44,6 +44,6 @@ int	main(int argc, char **argv)
 		print_capital(argv[i]);
 		i++;
 	}
-	std::cout << "" << std::endl;
+	std::cout << std::endl;
 	return (0);
 }
