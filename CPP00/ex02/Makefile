@@ -6,22 +6,20 @@
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/08 14:49:08 by albartol          #+#    #+#              #
-#    Updated: 2024/05/08 14:51:11 by albartol         ###   ########.fr        #
+#    Updated: 2024/05/08 17:48:32 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES := Acount
+SOURCES := tests Account
 
-SRC_DIR := src
-
-SRCS := $(addsuffix .cpp, $(addprefix $(SRC_DIR)/, $(SOURCES)))
+SRCS := $(addsuffix .cpp, $(SOURCES))
 
 CPP := g++
 
 # CPP_FLAGS := -Wall -Wextra -Werror -std=c++98
 CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 -ggdb
 
-NAME := acount
+NAME := my_account
 
 OBJS := $(SRCS:%.cpp=%.o)
 
@@ -42,4 +40,8 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+test: re
+	./$(NAME) > new_test.log
+	diff new_test.log 19920104_091532.log
+
+.PHONY: all clean fclean re test

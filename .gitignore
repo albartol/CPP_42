@@ -1,6 +1,8 @@
 .vscode
 *.o
-*.txt
 *.a
+*.txt
+*.log
 megaphone
 phonebook
+my_account
