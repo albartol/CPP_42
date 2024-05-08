@@ -6,7 +6,7 @@
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/08 14:49:08 by albartol          #+#    #+#              #
-#    Updated: 2024/05/08 17:48:32 by albartol         ###   ########.fr        #
+#    Updated: 2024/05/08 19:03:23 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@ SOURCES := tests Account
 
 SRCS := $(addsuffix .cpp, $(SOURCES))
 
-CPP := g++
+CPP := c++
 
-# CPP_FLAGS := -Wall -Wextra -Werror -std=c++98
-CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 -ggdb
+CPP_FLAGS := -Wall -Wextra -Werror -std=c++98
+# CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 -ggdb
 
 NAME := my_account
 

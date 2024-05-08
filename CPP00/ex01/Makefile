@@ -6,7 +6,7 @@
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/06 17:57:34 by albartol          #+#    #+#              #
-#    Updated: 2024/05/08 14:50:23 by albartol         ###   ########.fr        #
+#    Updated: 2024/05/08 19:03:07 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS := $(addsuffix .cpp, $(addprefix $(SRC_DIR)/, $(SOURCES)))
 
 INCLUDE := -I include
 
-CPP := g++
+CPP := c++
 
 CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 $(INCLUDE)
 # CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 -ggdb $(INCLUDE)

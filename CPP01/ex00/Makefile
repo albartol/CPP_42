@@ -5,31 +5,35 @@
 #                                                     +:+ +:+         +:+      #
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/06 17:57:34 by albartol          #+#    #+#              #
-#    Updated: 2024/05/08 19:02:58 by albartol         ###   ########.fr        #
+#    Created: 2024/05/08 19:05:39 by albartol          #+#    #+#              #
+#    Updated: 2024/05/08 20:12:39 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+SOURCES := main Zombie newZombie randomChump
+
+SRCS := $(addsuffix .cpp, $(SOURCES))
+
 CPP := c++
 
-CPPFLAGS := -Wall -Wextra -Werror -std=c++98
+CPP_FLAGS := -Wall -Wextra -Werror -std=c++98
+# CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 -ggdb
 
-SRC := megaphone.cpp
+NAME := brainzz
 
-OBJ := $(SRC:.cpp=.o)
+OBJS := $(SRCS:%.cpp=%.o)
 
-NAME := megaphone
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CPP) $(CPPFLAGS) $^ -o $@
+$(NAME): $(OBJS)
+	$(CPP) $(CPP_FLAGS) $^ -o $@
 
 %.o: %.cpp
-	$(CPP) $(CPPFLAGS) -c $< -o $@
+	$(CPP) $(CPP_FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
