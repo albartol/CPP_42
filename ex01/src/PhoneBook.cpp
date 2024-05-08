@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 11:06:22 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 00:13:56 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/08 11:54:14 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,57 @@ PhoneBook::~PhoneBook(void)
 	}
 }
 
-void	PhoneBook::check_contact() const
+bool	PhoneBook::empty_field(std::string input) const
 {
-	std::string	temp;
+	if (input.empty())
+	{
+		std::cout << EMPTY_FIELD;
+		book[row_to_edit]->clean_contact();
+		return (true);
+	}
+	return (false);
+}
 
-	temp.clear();
+bool	PhoneBook::check_phone(std::string phone) const
+{
+	if (phone.length() > MAX_PHONE_LENGTH)
+	{
+		std::cout << INVALID_PHONE;
+		book[row_to_edit]->clean_contact();
+		return (true);
+	}
+	return (false);
+}
+
+bool	PhoneBook::get_values(void)
+{
+	std::string	input;
+
+	input = get_input(GET_FIRST_NAME);
+	if (empty_field(input))
+		return (true);
+	book[row_to_edit]->set_value(input, FIRST_NAME);
+	input = get_input(GET_LAST_NAME);
+	if (empty_field(input))
+		return (true);
+	book[row_to_edit]->set_value(input, LAST_NAME);
+	input = get_input(GET_NICKNAME);
+	if (empty_field(input))
+		return (true);
+	book[row_to_edit]->set_value(input, NICKNAME);
+	input = get_input(GET_PHONE);
+	if (empty_field(input) || check_phone(input))
+		return (true);
+	book[row_to_edit]->set_value(input, PHONE);
+	input = get_input(GET_SECRET);
+	if (empty_field(input))
+		return (true);
+	book[row_to_edit]->set_value(input, SECRET);
+	return (false);
 }
 
 void	PhoneBook::add_contact(void)
 {
-	std::string	input;
-
 	if (num_of_rows < MAX_CONTACTS)
 	{
 		book[num_of_rows] = new Contact(num_of_rows);
@@ -48,17 +88,8 @@ void	PhoneBook::add_contact(void)
 			row_to_edit = 0;
 		book[row_to_edit]->clean_contact();
 	}
-	input = get_input(GET_FIRST_NAME);
-	book[row_to_edit]->set_value(input, FIRST_NAME);
-	input = get_input(GET_LAST_NAME);
-	book[row_to_edit]->set_value(input, LAST_NAME);
-	input = get_input(GET_NICKNAME);
-	book[row_to_edit]->set_value(input, NICKNAME);
-	input = get_input(GET_PHONE);
-	book[row_to_edit]->set_value(input, PHONE);
-	input = get_input(GET_SECRET);
-	book[row_to_edit]->set_value(input, SECRET);
-	check_contact();
+	if (get_values())
+		return ;
 	row_to_edit++;
 }
 

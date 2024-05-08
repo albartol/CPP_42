@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 23:51:14 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 00:20:28 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/08 11:49:22 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define GET_PHONE "Phone numder: "
 # define GET_SECRET "Darkest secret: "
 # define EMPTY_FIELD "Empty field\n"
+# define INVALID_PHONE "Not a valid phone number\n"
 
 # define SEARCH "SEARCH"
 
@@ -47,7 +48,8 @@ enum
 	PHONE,
 	SECRET,
 	MAX_CONTACTS = 8,
-	CELL_SIZE = 10
+	CELL_SIZE = 10,
+	MAX_PHONE_LENGTH = 16
 };
 
 #endif
