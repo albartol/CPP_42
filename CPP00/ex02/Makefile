@@ -5,25 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/06 17:57:34 by albartol          #+#    #+#              #
-#    Updated: 2024/05/07 23:54:42 by albartol         ###   ########.fr        #
+#    Created: 2024/05/08 14:49:08 by albartol          #+#    #+#              #
+#    Updated: 2024/05/08 14:51:11 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES := main Contact PhoneBook utils
+SOURCES := Acount
 
 SRC_DIR := src
 
 SRCS := $(addsuffix .cpp, $(addprefix $(SRC_DIR)/, $(SOURCES)))
 
-INCLUDE := -I include
-
 CPP := g++
 
-# CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 $(INCLUDE)
-CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 -ggdb $(INCLUDE)
+# CPP_FLAGS := -Wall -Wextra -Werror -std=c++98
+CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 -ggdb
 
-NAME := phonebook
+NAME := acount
 
 OBJS := $(SRCS:%.cpp=%.o)
 

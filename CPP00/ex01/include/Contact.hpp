@@ -6,10 +6,11 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:03:36 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/07 23:55:03 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:53:10 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 

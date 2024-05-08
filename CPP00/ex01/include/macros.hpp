@@ -6,10 +6,11 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 23:51:14 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 11:49:22 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:53:14 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef MACROS_HPP
 # define MACROS_HPP
 
