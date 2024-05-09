@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/08 19:05:39 by albartol          #+#    #+#              #
-#    Updated: 2024/05/09 11:23:11 by albartol         ###   ########.fr        #
+#    Created: 2024/05/09 11:22:31 by albartol          #+#    #+#              #
+#    Updated: 2024/05/09 12:40:48 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES := main Weapon HumanA HumanB
+SOURCES := main Sed
 
 SRCS := $(addsuffix .cpp, $(SOURCES))
 
@@ -19,7 +19,7 @@ CPP := c++
 CPP_FLAGS := -Wall -Wextra -Werror -std=c++98
 # CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 -ggdb
 
-NAME := violence
+NAME := sed
 
 OBJS := $(SRCS:%.cpp=%.o)
 

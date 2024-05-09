@@ -3,6 +3,7 @@
 *.a
 *.txt
 *.log
+*.replace
 megaphone
 phonebook
 my_account
@@ -10,3 +11,4 @@ brainzz
 horde
 brain
 violence
+sed
