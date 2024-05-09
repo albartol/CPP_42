@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:53:04 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/09 21:11:54 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/09 21:19:11 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,46 +15,16 @@
 #include <iostream>
 #include "Harl.hpp"
 
-// Harl::Harl(void) : levels{DEBUG, INFO, WARNING, ERROR},
-// actions{&Harl::debug, &Harl::info, &Harl::warning, &Harl::error}
-// {}
-
 Harl::Harl(void)
 {
 	levels[0] = DEBUG;
 	levels[1] = INFO;
 	levels[2] = WARNING;
 	levels[3] = ERROR;
-
-	actions[0] = &Harl::debug;
-	actions[1] = &Harl::info;
-	actions[2] = &Harl::warning;
-	actions[3] = &Harl::error;
 }
 
 Harl::~Harl(void) {}
 
-void	Harl::complain(std::string level) const
-{
-	u_int32_t	i;
-
-	i = 0;
-	while (i < LEVELS_NUM && level.compare(levels[i]))
-		i++;
-	if (i < LEVELS_NUM)
-		CALL_MEMBER_FN(actions[i])();
-}
-
-void	Harl::complain_loop(u_int32_t index) const
-{
-	while (index < LEVELS_NUM)
-	{
-		std::cout << "[" << levels[index] << "]\n";
-		CALL_MEMBER_FN(actions[index])();
-		std::cout << "\n";
-		index++;
-	}
-}
 
 void	Harl::filter(std::string level) const
 {
@@ -63,23 +33,6 @@ void	Harl::filter(std::string level) const
 	i = 0;
 	while (i < LEVELS_NUM && level.compare(levels[i]))
 		i++;
-	// switch (i)
-	// {
-	// 	case 0:
-	// 		complain_loop(i);
-	// 		break ;
-	// 	case 1:
-	// 		complain_loop(i);
-	// 		break ;
-	// 	case 2:
-	// 		complain_loop(i);
-	// 		break ;
-	// 	case 3:
-	// 		complain_loop(i);
-	// 		break ;
-	// 	default:
-	// 		std::cout << "[ Complaining about insignificant problems ]\n";
-	// }
 	switch (i)
 	{
 		case 0:
