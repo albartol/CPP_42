@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:13:58 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/11 16:39:42 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/11 19:03:17 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class	ClapTrap
 {
-	private:
+	protected:
 
 		std::string	_name;
 		unsigned int	_hitPts;

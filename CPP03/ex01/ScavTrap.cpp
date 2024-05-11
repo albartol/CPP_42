@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 17:17:26 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/11 17:42:45 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/11 19:16:07 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,27 @@
 #include <iostream>
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) _name(name), _hitPts(10),
-	_energyPts(10), _attackDmg(0)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
+	_hitPts = 100;
+	_energyPts = 50;
+	_attackDmg = 20;
 	std::cout << "Naming constructor called\nScavTrap: [" << _name << "]\n";
 }
 
-ScavTrap::ScavTrap(void) : _name("default name"), _hitPts(10),
-	_energyPts(10), _attackDmg(0)
+ScavTrap::ScavTrap(void) : ClapTrap()
 {
+	_hitPts = 100;
+	_energyPts = 50;
+	_attackDmg = 20;
 	std::cout << "Default constructor called\nScavTrap: [" << _name << "]\n";
 }
 
-ScavTrap::ScavTrap(ScavTrap &copy) : _name(copy._name), _hitPts(copy._hitPts),
-	_energyPts(copy._energyPts), _attackDmg(copy._attackDmg)
+ScavTrap::ScavTrap(ScavTrap &copy) : ClapTrap(copy._name)
 {
+	_hitPts = copy._hitPts;
+	_energyPts = copy._energyPts;
+	_attackDmg = copy._attackDmg;
 	std::cout << "Copy constructor called\nScavTrap: [" << _name << "]\n";
 }
 
@@ -45,4 +51,21 @@ ScavTrap & ScavTrap::operator= (ScavTrap &src)
 ScavTrap::~ScavTrap(void)
 {
 	std::cout << "Destructor called\nScavTrap: [" << _name << "]\n";
-} 
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (_energyPts == 0)
+		std::cout << "ScavTrap [" << _name << "] is too tired to attack\n";
+	else
+	{
+		_energyPts = _energyPts - 1;
+		std::cout << "ScavTrap [" << _name << "] attacks [" << target
+			<< "], causing " << _attackDmg << " points of damage!\n";
+	}
+}
+
+void	ScavTrap::guardGate(void) const
+{
+	std::cout << "ScavTrap [" << _name << "] is in gate keeper mode\n";
+}

@@ -6,7 +6,7 @@
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/11 14:06:00 by albartol          #+#    #+#              #
-#    Updated: 2024/05/11 15:40:01 by albartol         ###   ########.fr        #
+#    Updated: 2024/05/11 19:19:55 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ CPP := c++
 
 CPPFLAGS := -Wall -Wextra -Werror -std=c++98
 
-SOURCE := main ClapTrap
+SOURCE := main ClapTrap ScavTrap
 
 SRCS := $(addsuffix .cpp, $(SOURCE))
 
 OBJS := $(SRCS:.cpp=.o)
 
-NAME := clap_trap
+NAME := scav_trap
 
 
 all: $(NAME)
