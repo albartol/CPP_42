@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:13:55 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/11 15:44:16 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/11 16:43:00 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(10),
+	_energyPts(10), _attackDmg(0)
+{
+	std::cout << "Naming constructor called\nName: [" << _name << "]\n";
+}
+
+ClapTrap::ClapTrap(void) : _name("default name"), _hitPts(10),
 	_energyPts(10), _attackDmg(0)
 {
 	std::cout << "Default constructor called\nName: [" << _name << "]\n";

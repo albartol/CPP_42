@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:13:58 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/11 15:06:00 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/11 16:39:42 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class	ClapTrap
 	public:
 
 		ClapTrap(std::string name);
+		ClapTrap(void);
 		ClapTrap(ClapTrap& copy);
 		ClapTrap& operator= (ClapTrap& src);
 		~ClapTrap(void);
