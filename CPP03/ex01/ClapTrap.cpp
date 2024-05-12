@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:13:55 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/11 19:15:30 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/12 22:45:30 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,13 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		_hitPts = 0;
 	else
 		_hitPts = _hitPts - amount;
-	std::cout << "ClapTrap [" << _name << "] takes "
-		<< amount << " points of damage!\n";
+	if (_hitPts == 0)
+		std::cout << "ClapTrap [" << _name << "] is dead!\n";
+	else
+	{
+		std::cout << "ClapTrap [" << _name << "] takes "
+			<< amount << " points of damage!\n";
+	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)

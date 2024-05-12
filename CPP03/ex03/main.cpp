@@ -6,24 +6,27 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:12:32 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/12 23:36:41 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/12 23:21:33 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void)
 {
-	ScavTrap	s1("j1");
-	ScavTrap	s2(s1);
-	ScavTrap	s3 = s2;
-	ScavTrap	s4("j2");
+	DiamondTrap	d1("(o_o)");
+	DiamondTrap	d2(d1);
+	DiamondTrap	d3 = d2;
+	DiamondTrap	d4;
 
-	s4 = s3;
-	s1.attack("enemy");
-	s2.takeDamage(80);
-	s3.beRepaired(90);
-	s4.attack("enemy2");
-	s4.guardGate();
+	d4 = d3;
+
+	d1.attack("enemy");
+	d2.takeDamage(80);
+	d3.beRepaired(90);
+	d4.guardGate();
+	d4.highFivesGuys();
+	d4.whoAmI();
+
 	return (0);
 }
