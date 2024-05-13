@@ -19,3 +19,5 @@ bsp
 clap_trap
 scav_trap
 frag_trap
+diamond_trap
+poly
