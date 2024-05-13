@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 11:10:44 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/13 18:46:19 by albartol         ###   ########.fr       */
+/*   Created: 2024/05/13 11:15:55 by albartol          #+#    #+#             */
+/*   Updated: 2024/05/13 18:44:36 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 #include <iostream>
 #include <cstdlib>
 #include <new>
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat(void) : Animal()
+Dog::Dog(void) : Animal()
 {
-	_type = "Cat";
+	_type = "Dog";
 	_brain = new Brain();
 	if (_brain == NULL)
 	{
-		std::cerr << "Failed brain allocation in Cat\n";
+		std::cerr << "Failed brain allocation in Dog\n";
 		exit(1);
 	}
-	_brain->setIdea(0, "I am a cat");
-	std::cout << "Cat default constructor called\n";
+	_brain->setIdea(0, "I am a dog");
+	std::cout << "Dog default constructor called\n";
 }
 
-Cat::Cat(Cat& other) : Animal()
+Dog::Dog(Dog& other) : Animal()
 {
 	_type = other._type;
 	_brain = new Brain();
@@ -39,26 +39,31 @@ Cat::Cat(Cat& other) : Animal()
 		exit(1);
 	}
 	*_brain = *other._brain;
-	_brain->setIdea(0, "I am a cat");
-	std::cout << "Cat copy constructor called\n";
+	_brain->setIdea(0, "I am a dog");
+	std::cout << "Dog copy constructor called\n";
 }
 
-Cat& Cat::operator= (Cat& other)
+Dog& Dog::operator= (Dog& other)
 {
 	_type = other._type;
 	*_brain = *other._brain;
-	std::cout << "Cat copy assignment operator called\n";
+	std::cout << "Dog copy assignment operator called\n";
 	return (*this);
 }
 
-Cat::~Cat(void)
+Dog::~Dog(void)
 {
 	delete _brain;
-	std::cout << "Cat destructor called\n";
+	std::cout << "Dog destructor called\n";
 }
 
-void	Cat::makeSound(void) const
+void	Dog::makeSound(void) const
 {
-	std::cout << "Meeeoow!!\n"
+	std::cout << "Wooof!!\n"
 		<< _brain->getIdea(0) << "\n";
+}
+
+void	Dog::setIdea(unsigned int i, std::string new_idea)
+{
+	_brain->setIdea(i, new_idea);
 }

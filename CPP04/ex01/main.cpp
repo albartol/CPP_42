@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 10:39:32 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/13 18:17:10 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/13 18:39:36 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ int	main(void)
 	Dog	a;
 	Dog	b;
 	Dog	c;
+	{
+		Dog	d = a;
+	}
 
 	a.setIdea(0, "I am a bird");
 	a.makeSound();
