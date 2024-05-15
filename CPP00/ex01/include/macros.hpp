@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 23:51:14 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/15 15:42:47 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:29:41 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # include <iostream>
 # include <cstdlib>
 
+# define GREEN "\033[1;32m"
+# define RED "\033[0;31m"
+# define RESET "\033[0m"
+
 # define ENTER_COMMAND "Enter a command (ADD, SEARCH or EXIT): "
 
 # define ADD "ADD"
@@ -28,16 +32,19 @@
 # define GET_NICKNAME "Nickname: "
 # define GET_PHONE "Phone numder: "
 # define GET_SECRET "Darkest secret: "
-# define EMPTY_FIELD "Empty field\n"
-# define INVALID_PHONE "Not a valid phone number\n"
+
+# define EMPTY_FIELD "\033[1;31mEmpty field\n\033[0m"
+# define TRY_AGAIN "\033[1;31mTry again\n\033[0m"
+# define INVALID_PHONE "\033[1;31mNot a valid phone number\n\033[0m"
 
 # define SEARCH "SEARCH"
 
 # define INFO_ROW "|     Index|First name| Last name|  Nickname|\n"
 # define DIV_ROW "---------------------------------------------\n"
-# define EMPTY_BOOK "Empty phonebook\n"
 # define GET_INDEX "Select contact index (default: 0): "
-# define INVALID_INDEX "Not a valid index\n"
+
+# define EMPTY_BOOK "\033[1;31mEmpty phonebook\n\033[0m"
+# define INVALID_INDEX "\033[1;31mNot a valid index\n\033[0m"
 
 # define EXIT "EXIT"
 

@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 11:06:22 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/15 15:43:49 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:24:42 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,11 @@ void	PhoneBook::add_contact(void)
 		book[row_to_edit].clean_contact();
 	}
 	while (get_values())
-		std::cout << "Try again\n";
+	{
+		if (std::cin.eof())
+			return ;
+		std::cout << TRY_AGAIN;
+	}
 	row_to_edit++;
 }
 
@@ -117,6 +121,8 @@ void	PhoneBook::search_contact(void) const
 		return ;
 	}
 	input = get_input(GET_INDEX);
+	if (std::cin.eof())
+		return ;
 	index = string_to_uint32(input);
 	display_contact(index);
 }

@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 16:52:11 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/15 15:21:44 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:22:52 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,10 @@ std::string	get_input(std::string message)
 		std::cout << "Write input: ";
 	else
 		std::cout << message;
+	std::cout << GREEN;
 	std::getline(std::cin, input);
+	std::cout << RESET;
 	if (std::cin.eof())
-		exit(0);
+		return (EXIT);
 	return (input);
 }
