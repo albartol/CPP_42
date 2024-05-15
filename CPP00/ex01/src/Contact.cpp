@@ -6,16 +6,15 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:05:22 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 00:14:21 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:37:40 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iomanip>
 #include <phone_book.hpp>
 
 Contact::Contact(u_int32_t num) : index(num)
 {
-	row = uint32_to_string(index);
-	row.insert(0, "         ");
 	fields[FIRST_NAME] = &first_name;
 	fields[LAST_NAME] = &last_name;
 	fields[NICKNAME] = &nickname;
@@ -25,7 +24,6 @@ Contact::Contact(u_int32_t num) : index(num)
 
 Contact::~Contact(void)
 {
-	row.clear();
 	clean_contact();
 }
 
@@ -38,6 +36,21 @@ void Contact::clean_contact(void)
 	secret.clear();
 }
 
+// void Contact::print_contact_row(void) const
+// {
+// 	std::string	temp_first;
+// 	std::string	temp_last;
+// 	std::string	temp_nick;
+
+// 	temp_first = format_table_cell(first_name);
+// 	temp_last = format_table_cell(last_name);
+// 	temp_nick = format_table_cell(nickname);
+// 	std::cout << "|" << std::setw (CELL_SIZE) << index << "|" 
+// 		<< temp_first << "|"
+// 		<< temp_last << "|"
+// 		<< temp_nick << "|" << "\n";
+// }
+
 void Contact::print_contact_row(void) const
 {
 	std::string	temp_first;
@@ -47,10 +60,10 @@ void Contact::print_contact_row(void) const
 	temp_first = format_table_cell(first_name);
 	temp_last = format_table_cell(last_name);
 	temp_nick = format_table_cell(nickname);
-	std::cout << "|" << row << "|" 
-		<< temp_first << "|"
-		<< temp_last << "|"
-		<< temp_nick << "|" << "\n";
+	std::cout << "|" << std::setw (CELL_SIZE) << index << "|" 
+		<< std::setw (CELL_SIZE) << temp_first << "|"
+		<< std::setw (CELL_SIZE) << temp_last << "|"
+		<< std::setw (CELL_SIZE) << temp_nick << "|" << "\n";
 }
 
 void Contact::print_contact(void) const

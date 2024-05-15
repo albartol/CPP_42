@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:59:25 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 17:54:08 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:58:26 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	Account::_displayTimestamp(void)
 		<< std::setfill ('0') << std::setw (2) << time_info->tm_mday
 		<< "_" << time_info->tm_hour << time_info->tm_min
 		<< time_info->tm_sec << "]";
+	// std::cout << "[" << std::put_time(time_info, "%Y%m%d_%H%M%S") << "]";
 }
 
 void	Account::makeDeposit(int deposit)

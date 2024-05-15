@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:03:36 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 14:53:10 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:57:20 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Contact
 {
 	private:
 
-		std::string	row;
 		std::string first_name;
 		std::string last_name;
 		std::string nickname;

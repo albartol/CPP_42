@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 11:07:32 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 00:03:21 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:50:58 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	phone_book_loop(PhoneBook *book)
 
 	while (true)
 	{
-		// std::cout << std::endl;
 		input = get_input(ENTER_COMMAND);
 		if (input.empty())
 			continue ;

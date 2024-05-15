@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 11:06:22 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 11:54:14 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 13:50:57 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ void	PhoneBook::display_book(void) const
 		std::cout << DIV_ROW;
 		i++;
 	}
-	// std::cout << std::endl;
 }
 
 void	PhoneBook::display_contact(u_int32_t index) const
