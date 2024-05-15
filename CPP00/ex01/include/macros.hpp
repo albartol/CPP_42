@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 23:51:14 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 14:53:14 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:42:47 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string>
 # include <sys/types.h>
 # include <iostream>
-# include <new>
+# include <cstdlib>
 
 # define ENTER_COMMAND "Enter a command (ADD, SEARCH or EXIT): "
 

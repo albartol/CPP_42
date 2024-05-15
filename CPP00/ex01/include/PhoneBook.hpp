@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 11:06:37 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/08 14:53:22 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:33:50 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ class PhoneBook
 
 		u_int32_t	num_of_rows;
 		u_int32_t	row_to_edit;
-		Contact *book[MAX_CONTACTS];
+		Contact book[MAX_CONTACTS];
 
 		bool	get_values(void);
-		bool	empty_field(std::string input) const;
-		bool	check_phone(std::string phone) const;
+		bool	empty_field(std::string input);
+		bool	check_phone(std::string phone);
 		void	display_book(void) const;
 		void	display_contact(u_int32_t index) const;
 

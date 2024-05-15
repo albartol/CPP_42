@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:03:36 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/15 13:57:20 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:30:52 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ class Contact
 		std::string phone;
 		std::string secret;
 		std::string *fields[5];
-		const u_int32_t	index;
+		u_int32_t	index;
 	
 	public:
 	
-		Contact(u_int32_t num);
+		Contact(void);
 		~Contact(void);
 		void	clean_contact(void);
+		void	set_index(u_int32_t new_index);
 		void	set_value(std::string value, u_int32_t type);
 		std::string	get_value(u_int32_t type) const;
 		void	print_contact_row(void) const;

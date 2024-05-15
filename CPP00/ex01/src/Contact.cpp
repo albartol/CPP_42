@@ -6,14 +6,14 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:05:22 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/15 14:37:40 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:30:57 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iomanip>
 #include <phone_book.hpp>
 
-Contact::Contact(u_int32_t num) : index(num)
+Contact::Contact(void)
 {
 	fields[FIRST_NAME] = &first_name;
 	fields[LAST_NAME] = &last_name;
@@ -79,6 +79,11 @@ void Contact::set_value(std::string value, u_int32_t type)
 {
 	if (type < 5)
 		fields[type]->assign(value);
+}
+
+void Contact::set_index(u_int32_t new_index)
+{
+	index = new_index;
 }
 
 std::string Contact::get_value(u_int32_t type) const
