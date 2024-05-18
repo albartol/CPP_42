@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:22:24 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/09 13:12:03 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/18 20:36:41 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,8 @@ static void	search_and_replace(std::string s1, std::string s2,
 			std::ifstream &src, std::ofstream &dest)
 {
 	Sed	reader(s1, s2, src, dest);
-	size_t	num_of_lines;
 
-	num_of_lines = 0;
-	while (reader.read_replace_line())
-	{
-		num_of_lines++;
-	}
-	std::cout << "Number of lines copied: " << num_of_lines << "\n";
+	reader.read_replace();
 }
 
 static int	print_error(std::string error)
