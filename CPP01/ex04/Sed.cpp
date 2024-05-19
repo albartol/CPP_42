@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:53:04 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/18 21:25:53 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/19 21:21:28 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,66 @@
 
 Sed::Sed(std::string s1, std::string s2, std::ifstream &src,
 	std::ofstream &dest) : src_str(s1), dest_str(s2), src_file(src),
-	dest_file(dest) {}
+	dest_file(dest), num_of_changes(0) {}
 
 Sed::~Sed(void) {}
 
-// bool	Sed::read_replace_line(void) const
+// bool	Sed::read_replace(void)
 // {
-// 	std::string	line;
+// 	std::string	file((std::istreambuf_iterator<char>(src_file)),
+// 		std::istreambuf_iterator<char>());
 
 // 	if (check_src_file())
 // 		return false;
-// 	std::getline(src_file, line);
-// 	if (check_src_file())
-// 		return false;
-// 	if (check_dest_file())
-// 		return false;
-// 	if (line.compare(src_str) == 0)
-// 		dest_file << dest_str << "\n";
-// 	else
-// 		dest_file << line << "\n";
-// 	if (check_dest_file())
-// 		return false;
-// 	if (src_file.eof())
+// 	if (file.empty())
 // 	{
-// 		std::cout << "Finished reading\n";
+// 		std::cerr << "Empty file\n";
 // 		return false;
 // 	}
+// 	if (src_str.compare(dest_str) != 0)
+// 		find_insert(file);
+// 	dest_file << file;
+// 	if (check_dest_file())
+// 		return false;
+// 	return true;
+// }
+
+// bool	Sed::read_replace(void)
+// {
+// 	std::string	file;
+
+// 	std::getline(src_file, file, '\0');
+// 	if (check_src_file())
+// 		return false;
+// 	if (file.empty())
+// 	{
+// 		std::cerr << "Empty file\n";
+// 		return false;
+// 	}
+// 	if (src_str.compare(dest_str) != 0)
+// 		find_insert(file);
+// 	dest_file << file;
+// 	if (check_dest_file())
+// 		return false;
 // 	return true;
 // }
 
 bool	Sed::read_replace(void)
 {
 	std::string	file;
+	size_t	pos;
 
-	// file.assign((std::istreambuf_iterator<char>(src_file)),
-	// 	std::istreambuf_iterator<char>());
+	num_of_changes = 0;
 	src_file.seekg(0, std::ios::end);
 	if (check_src_file())
 		return false;
-	file.resize(src_file.tellg());
+	pos = src_file.tellg();
+	if (pos == 0)
+	{
+		std::cerr << "Empty file\n";
+		return false;
+	}
+	file.resize(pos);
 	src_file.seekg(0, std::ios::beg);
 	if (check_src_file())
 		return false;
@@ -67,7 +88,8 @@ bool	Sed::read_replace(void)
 		std::cerr << "Failed to store file contents into a string\n";
 		return false;
 	}
-	find_insert(file);
+	if (src_str.compare(dest_str) != 0)
+		find_insert(file);
 	dest_file << file;
 	if (check_dest_file())
 		return false;
@@ -82,11 +104,12 @@ bool	Sed::find_insert(std::string &file)
 	while (i < file.length())
 	{
 		i = file.find(src_str, i);
-		if (i >= file.length())
+		if (i >= std::string::npos)
 			return true;
 		file.erase(i, src_str.length());
 		file.insert(i, dest_str);
 		i += dest_str.length();
+		num_of_changes++;
 	}
 	return true;
 }
@@ -111,4 +134,9 @@ bool	Sed::check_dest_file(void) const
 	else if (dest_file.fail())
 		std::cerr << "Failure while writing\n";
 	return true;
+}
+
+unsigned int	Sed::get_changes(void) const
+{
+	return (num_of_changes);
 }

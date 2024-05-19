@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:38:20 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/11 00:00:51 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/19 21:18:57 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,10 +153,12 @@ Fixed & Fixed::operator++ (void)
 	return (*this);
 }
 
-Fixed & Fixed::operator++ (int)
+Fixed	Fixed::operator++ (int)
 {
+	Fixed	old_value(*this);
+
 	integer = integer + 1;
-	return (*this);
+	return (old_value);
 }
 
 Fixed & Fixed::operator-- (void)
@@ -165,10 +167,12 @@ Fixed & Fixed::operator-- (void)
 	return (*this);
 }
 
-Fixed & Fixed::operator-- (int)
+Fixed	Fixed::operator-- (int)
 {
+	Fixed	old_value(*this);
+
 	integer = integer - 1;
-	return (*this);
+	return (old_value);
 }
 
 Fixed & Fixed::max(Fixed & src1, Fixed & src2)

@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:38:16 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/13 12:02:04 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/19 21:14:29 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ class	Fixed
 		Fixed operator* (const Fixed & other) const;
 		Fixed operator/ (const Fixed & other) const;
 		Fixed & operator++ (void);
-		Fixed & operator++ (int);
+		Fixed operator++ (int);
 		Fixed & operator-- (void);
-		Fixed & operator-- (int);
+		Fixed operator-- (int);
 		static const Fixed & max(const Fixed & src1, const Fixed & src2);
 		static Fixed & max(Fixed & src1, Fixed & src2);
 		static const Fixed & min(const Fixed & src1, const Fixed & src2);

@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:22:24 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/18 20:36:41 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/19 21:52:05 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static void	search_and_replace(std::string s1, std::string s2,
 {
 	Sed	reader(s1, s2, src, dest);
 
-	reader.read_replace();
+	if (reader.read_replace())
+		std::cout << "Number of changes: " << reader.get_changes() << '\n';
 }
 
 static int	print_error(std::string error)
