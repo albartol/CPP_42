@@ -6,12 +6,13 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:38:20 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/10 21:20:04 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:12:01 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <sys/types.h>
+#include <cmath>
 #include "Fixed.hpp"
 
 const int8_t	Fixed::fract_bits = 8;
@@ -65,9 +66,14 @@ float	Fixed::toFloat(void) const
 	return (static_cast<float>(integer) / (1 << fract_bits));
 }
 
+// int	Fixed::toInt(void) const
+// {
+// 	return (integer >> fract_bits);
+// }
+
 int	Fixed::toInt(void) const
 {
-	return (integer >> fract_bits);
+	return (roundf(toFloat()));
 }
 
 std::ostream & operator<< (std::ostream & os, const Fixed & src)

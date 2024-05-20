@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:53:04 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/19 21:21:28 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:55:33 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ bool	Sed::read_replace(void)
 		std::cerr << "Failed to store file contents into a string\n";
 		return false;
 	}
-	if (src_str.compare(dest_str) != 0)
+	if (!src_str.empty() && src_str.compare(dest_str) != 0)
 		find_insert(file);
 	dest_file << file;
 	if (check_dest_file())

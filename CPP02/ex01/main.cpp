@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:36:00 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/10 20:54:16 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:11:40 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(void)
 {
 	Fixed a;
-	Fixed const b( 10 );
+	Fixed const b( -10 );
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 
