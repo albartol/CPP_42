@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:12:32 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/12 23:21:33 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:09:57 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(void)
 	d4 = d3;
 
 	d1.attack("enemy");
-	d2.takeDamage(80);
+	d2.takeDamage(99);
+	d2.takeDamage(100);
 	d3.beRepaired(90);
 	d4.guardGate();
 	d4.highFivesGuys();
