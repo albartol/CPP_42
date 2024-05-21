@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:01:17 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/13 17:29:18 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:16:52 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,16 @@ const std::string	Brain::getIdea(unsigned int i) const
 	if (i < 100)
 		return (ideas[i]);
 	return ("Undefined idea");
+}
+
+void	Brain::printIdeas(void) const
+{
+	unsigned int	i = 0;
+
+	while (i < 100)
+	{
+		if (!ideas[i].empty())
+			std::cout << "Idea [" << i << "] : " << ideas[i] << "\n";
+		i++;
+	}
 }

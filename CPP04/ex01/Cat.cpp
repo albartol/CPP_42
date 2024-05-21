@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:10:44 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/13 18:46:19 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:12:43 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,15 @@ Cat::~Cat(void)
 
 void	Cat::makeSound(void) const
 {
-	std::cout << "Meeeoow!!\n"
-		<< _brain->getIdea(0) << "\n";
+	std::cout << "Meeeoow!!\n";
+}
+
+void	Cat::setIdea(unsigned int i, std::string new_idea)
+{
+	_brain->setIdea(i, new_idea);
+}
+
+void	Cat::printIdeas(void) const
+{
+	_brain->printIdeas();
 }

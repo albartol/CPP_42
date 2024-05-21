@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:15:55 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/13 18:46:28 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:12:28 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,15 @@ Dog::~Dog(void)
 
 void	Dog::makeSound(void) const
 {
-	std::cout << "Wooof!!\n"
-		<< _brain->getIdea(0) << "\n";
+	std::cout << "Wooof!!\n";
 }
 
 void	Dog::setIdea(unsigned int i, std::string new_idea)
 {
 	_brain->setIdea(i, new_idea);
+}
+
+void	Dog::printIdeas(void) const
+{
+	_brain->printIdeas();
 }

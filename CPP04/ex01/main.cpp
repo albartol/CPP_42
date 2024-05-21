@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 10:39:32 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/13 18:39:36 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:17:19 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,33 @@ int	main(void)
 	}
 	std::cout << "\nCopy test\n\n";
 	Dog	a;
+	std::cout << "\n";
 	Dog	b;
+	std::cout << "\n";
 	Dog	c;
+	std::cout << "\n";
 	{
 		Dog	d = a;
 	}
+	std::cout << "\n";
 
-	a.setIdea(0, "I am a bird");
-	a.makeSound();
-	b.makeSound();
-	c.makeSound();
+	a.setIdea(3, "I am a bird");
+	a.setIdea(30, "I am a whale");
+	a.printIdeas();
+	std::cout << "\n";
+	b.printIdeas();
+	std::cout << "\n";
+	c.printIdeas();
+	std::cout << "\n";
 	b = a;
+	std::cout << "\n";
 	a = c;
-	a.makeSound();
-	b.makeSound();
-	c.makeSound();
+	std::cout << "\n";
+	a.printIdeas();
+	std::cout << "\n";
+	b.printIdeas();
+	std::cout << "\n";
+	c.printIdeas();
+	std::cout << "\n";
 	return (0);
 }

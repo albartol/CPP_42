@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 17:01:21 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/13 18:17:31 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:06:27 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class	Brain
 		Brain(Brain& other);
 		Brain& operator= (Brain& other);
 		~Brain(void);
+		void	printIdeas(void) const;
 		void	setIdea(unsigned int i, std::string new_idea);
 		const std::string	getIdea(unsigned int i) const;
 };

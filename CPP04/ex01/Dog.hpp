@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:15:52 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/13 18:07:05 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:12:45 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class	Dog : public Animal
 		~Dog(void);
 		void	makeSound(void) const;
 		void	setIdea(unsigned int i, std::string new_idea);
+		void	printIdeas(void) const;
+
 };
 
 #endif
