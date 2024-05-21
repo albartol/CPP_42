@@ -6,7 +6,7 @@
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/13 10:45:18 by albartol          #+#    #+#              #
-#    Updated: 2024/05/13 18:27:13 by albartol         ###   ########.fr        #
+#    Updated: 2024/05/21 14:00:01 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SOURCE := main Animal Dog Cat WrongAnimal WrongCat Brain
 
 SRCS := $(addsuffix .cpp, $(SOURCE))
 
-OBJS := $(SRCS:.cpp=.o)
+OBJS := $(SRCS:%.cpp=%.o)
 
 NAME := abstract
 
@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $^ -o $@
 
-.o: .cpp
+%.o: %.cpp
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:

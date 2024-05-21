@@ -6,7 +6,7 @@
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/11 14:06:00 by albartol          #+#    #+#              #
-#    Updated: 2024/05/11 15:40:01 by albartol         ###   ########.fr        #
+#    Updated: 2024/05/21 13:53:13 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SOURCE := main ClapTrap
 
 SRCS := $(addsuffix .cpp, $(SOURCE))
 
-OBJS := $(SRCS:.cpp=.o)
+OBJS := $(SRCS:%.cpp=%.o)
 
 NAME := clap_trap
 
@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $^ -o $@
 
-.o: .cpp
+%.o: %.cpp
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
