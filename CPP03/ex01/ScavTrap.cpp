@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 17:17:26 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/21 13:25:15 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:45:03 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ScavTrap::attack(const std::string& target)
 {
 	if (_hitPts == 0)
 		std::cout << "ScavTrap [" << _name << "] is dead!\n";
-	if (_energyPts == 0)
+	else if (_energyPts == 0)
 		std::cout << "ScavTrap [" << _name << "] is too tired to attack\n";
 	else
 	{
