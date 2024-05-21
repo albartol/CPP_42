@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:53:04 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/20 14:55:33 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:32:47 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,11 @@ bool	Sed::find_insert(std::string &file)
 		if (i >= std::string::npos)
 			return true;
 		file.erase(i, src_str.length());
-		file.insert(i, dest_str);
-		i += dest_str.length();
+		if (!dest_str.empty())
+		{
+			file.insert(i, dest_str);
+			i += dest_str.length();
+		}
 		num_of_changes++;
 	}
 	return true;
