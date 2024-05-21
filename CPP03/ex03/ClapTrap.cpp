@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 14:13:55 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/12 22:46:53 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:31:05 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ ClapTrap::~ClapTrap(void)
 
 void	ClapTrap::attack(const std::string& target)
 {
+	if (_hitPts == 0)
+		std::cout << "ClapTrap [" << _name << "] is dead!\n";
 	if (_energyPts == 0)
 		std::cout << "ClapTrap [" << _name << "] is too tired to attack\n";
 	else
@@ -79,6 +81,8 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	unsigned long	amount_check;
 
+	if (_hitPts == 0)
+		std::cout << "ClapTrap [" << _name << "] is dead!\n";
 	if (_energyPts == 0)
 		std::cout << "ClapTrap [" << _name << "] is too tired to be repaired\n";
 	else
