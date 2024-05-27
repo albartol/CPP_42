@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:07:40 by albartol          #+#    #+#             */
-/*   Updated: 2024/05/14 16:57:39 by albartol         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:51:40 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 		i++;
 	}
 	std::cout << "Materia not found\n";
-	return (NULL);
+	return (0);
 }
