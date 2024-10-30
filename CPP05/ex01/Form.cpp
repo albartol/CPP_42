@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:22:59 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/11 19:37:07 by albartol         ###   ########.fr       */
+/*   Updated: 2024/10/30 12:40:52 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Form::Form(const std::string& name, uint32_t signGrade, uint32_t execGrade) :
 
 Form::Form(const Form& other) : _name(other._name),
 	_signGrade(other._signGrade), _execGrade(other._execGrade),
-	_signed(false) {}
+	_signed(other._signed) {}
 
 Form::~Form(void) {}
 

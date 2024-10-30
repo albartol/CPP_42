@@ -5,32 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/10 20:37:48 by albartol          #+#    #+#              #
-#    Updated: 2024/10/30 14:10:28 by albartol         ###   ########.fr        #
+#    Created: 2024/10/15 12:20:52 by albartol          #+#    #+#              #
+#    Updated: 2024/10/15 12:58:29 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES := main Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm
-
-SRCS := $(addsuffix .cpp, $(SOURCES))
-
 CPP := c++
 
-CPP_FLAGS := -Wall -Wextra -Werror -std=c++98
-# CPP_FLAGS := -Wall -Wextra -Werror -std=c++98 -ggdb
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow -std=c++98
 
-NAME := forms
+SOURCE := main ScalarConverter
+
+SRCS := $(addsuffix .cpp, $(SOURCE))
 
 OBJS := $(SRCS:%.cpp=%.o)
+
+NAME := converter
 
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPP_FLAGS) $^ -o $@
+	$(CPP) $(CPPFLAGS) $^ -o $@
 
 %.o: %.cpp
-	$(CPP) $(CPP_FLAGS) -c $< -o $@
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

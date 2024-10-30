@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 17:22:59 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/12 16:26:50 by albartol         ###   ########.fr       */
+/*   Updated: 2024/10/30 12:45:32 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ AForm::AForm(const std::string& name, uint32_t signGrade, uint32_t execGrade) :
 
 AForm::AForm(const AForm& other) : _name(other._name),
 	_signGrade(other._signGrade), _execGrade(other._execGrade),
-	_signed(false) {}
+	_signed(other._signed) {}
 
 AForm::~AForm(void) {}
 
@@ -54,6 +54,11 @@ uint32_t AForm::getExecGrade(void) const
 bool AForm::getSigned(void) const
 {
 	return _signed;
+}
+
+void AForm::setSigned(bool new_signed)
+{
+	_signed = new_signed;
 }
 
 void AForm::beSigned(const Bureaucrat& src)
