@@ -6,11 +6,13 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 11:44:26 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/30 14:05:14 by albartol         ###   ########.fr       */
+/*   Updated: 2024/10/30 14:34:42 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>     /* srand, rand */
+#include <ctime>       /* time */
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target):
 	AForm("RobotomyRequestForm", 72, 45), _target(target) {}
