@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:39:29 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/30 18:44:58 by albartol         ###   ########.fr       */
+/*   Updated: 2024/10/31 12:45:36 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ struct type_info
 {
 	unsigned int	invalid;
 	unsigned int	not_num;
+	unsigned int	not_dis;
 	unsigned int	symbol;
 	unsigned int	decimal;
 	unsigned int	f;
@@ -31,6 +32,7 @@ struct type_info
 	{
 		invalid = 0;
 		not_num = 0;
+		not_dis = 0;
 		symbol = 0;
 		decimal = 0;
 		f = 0;

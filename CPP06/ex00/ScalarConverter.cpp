@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:52:43 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/30 19:07:23 by albartol         ###   ########.fr       */
+/*   Updated: 2024/10/31 13:05:01 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,24 @@ static int check_type(std::string data, t_type_info *type_data)
 			&& !(data[i] == '+' || data[i] == '-'))
 			return EXIT_FAILURE;
 	}
+	double num = std::strtod(data.c_str(), NULL);
+	if (num > INT_MAX || num < INT_MIN || data.length() > 19)
+		type_data->invalid = 1;
+	if (num > CHAR_MAX || num < CHAR_MIN)
+		type_data->not_dis = 1;
 	return EXIT_SUCCESS;
 }
 
 static void cast_values(const char * data, t_type_info *type_data, t_values *values)
 {
-	if (type_data->not_num)
+	if (type_data->not_num && !type_data->invalid)
 	{
 		values->ascii = data[0];
 		values->num_i = static_cast<int>(values->ascii);
 		values->num_f = static_cast<float>(values->ascii);
 		values->num_d = static_cast<double>(values->ascii);
 	}
-	else if (type_data->f)
+	else if (type_data->f && !type_data->invalid)
 	{
 		values->num_f = std::strtof(data, NULL);
 		values->ascii = static_cast<char>(values->num_f);
@@ -95,10 +100,10 @@ void ScalarConverter::convert(const char *data)
 		return;
 	}
 	cast_values(data, &type_data, &values);
-	std::cout << "char: ";
-	if (isprint(values.ascii))
-		std::cout << values.ascii << "\n";
-	else if (type_data.invalid)
+	std::cout << "char: '";
+	if (isprint(values.ascii) && !type_data.invalid)
+		std::cout << values.ascii << "'\n";
+	else if (type_data.invalid || type_data.not_dis)
 		std::cout << "impossible\n";
 	else
 		std::cout << "Non displayable\n";
