@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:52:43 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/31 13:05:01 by albartol         ###   ########.fr       */
+/*   Updated: 2024/10/31 13:31:12 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include <cstdlib>
 #include <climits>
 #include <iomanip>
+
+ScalarConverter::ScalarConverter(void){}
+ScalarConverter::ScalarConverter(const ScalarConverter& other){(void)other;}
+ScalarConverter& ScalarConverter::operator= (const ScalarConverter& other){(void)other;return*this;}
 
 static int check_type(std::string data, t_type_info *type_data)
 {

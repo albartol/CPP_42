@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:39:29 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/31 12:45:36 by albartol         ###   ########.fr       */
+/*   Updated: 2024/10/31 13:31:26 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ struct values
 class ScalarConverter
 {
 	public:
-		ScalarConverter(void){};
-		ScalarConverter(const ScalarConverter& other){(void)other;};
+		ScalarConverter(void);
+		ScalarConverter(const ScalarConverter& other);
 		virtual ~ScalarConverter(void) = 0;
-		ScalarConverter& operator= (const ScalarConverter& other){(void)other;return*this;};
+		ScalarConverter& operator= (const ScalarConverter& other);
 		static void convert(const char *data);
 };
 
