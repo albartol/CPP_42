@@ -6,13 +6,13 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:46:55 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/31 15:02:36 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/03 02:43:47 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "whatever.hpp"
 #include <iostream>
 #include <string>
-#include "whatever.hpp"
 
 
 int	main(void)

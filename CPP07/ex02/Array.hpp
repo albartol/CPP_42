@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:37:29 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/31 16:30:28 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/03 02:42:54 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
+#include <cstddef>
 #include <exception>
 
 template <class T> class Array

@@ -6,14 +6,14 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:37:23 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/31 16:52:31 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/03 02:42:25 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Array.hpp"
 #include <iostream>
 #include <cstdlib>     /* srand, rand */
 #include <ctime>       /* time */
-#include "Array.hpp"
 
 int	main(void)
 {

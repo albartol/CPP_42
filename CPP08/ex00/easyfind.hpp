@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 16:57:49 by albartol          #+#    #+#             */
-/*   Updated: 2024/10/31 17:36:55 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/02 14:48:33 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #define EASYFIND_HPP
 
 #include <exception>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include <deque>
 
 class NotFoundException : public std::exception {
 	virtual const char* what() const throw() {
@@ -22,12 +26,9 @@ class NotFoundException : public std::exception {
 	}
 };
 
-template <class T> int easyfind(T &cont, int val) {
-	
-	for (size_t i = 0; i < cont.size(); i++) {
-		if ()
-			return 
-	}
+template <class T> void easyfind(T &cont, int val) {
+	if (std::find(cont.begin(), cont.end(), val) != cont.end())
+		return ;
 	throw NotFoundException();
 }
 
