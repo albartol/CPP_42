@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 14:35:05 by albartol          #+#    #+#             */
-/*   Updated: 2024/11/03 22:07:46 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/04 17:51:47 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,29 @@ typedef std::map<std::string, std::string> storage;
 class BitcoinExchange
 {
 	private:
-		storage	_exangeRate;
-		storage	_values;
-		bool	storeFile(std::ifstream &, storage &);
+		std::map<std::string, std::string>	_data;
+		bool	storeFile(std::ifstream &, char);
 		bool	checkFile(std::ifstream &) const;
+		bool	checkHead(std::string &, char, const char *s1, const char *s2) const;
+		double	getValue(std::string &) const;
+		std::string	getDate(std::string &) const;
+		bool	btc(std::ifstream &, char);
+		std::string	trim(std::string) const;
 	public:
 		BitcoinExchange(void);
 		BitcoinExchange(const BitcoinExchange &);
 		~BitcoinExchange(void);
 		BitcoinExchange & operator=(const BitcoinExchange &);
-		void	startExange(const char *input, const char *database);
+		void	startExchange(const char *input, const char *database);
 		static int	error(const char *);
 		class ErrorException: public std::exception {
-			virtual const char *what() const throw() {
-				return "";
-			}
+			private:
+				const char *_error;
+			public:
+				ErrorException(const char *);
+				virtual const char *what() const throw() {
+					return _error;
+				}
 		};
 };
 

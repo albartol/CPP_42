@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:34:20 by albartol          #+#    #+#             */
-/*   Updated: 2024/11/03 03:38:47 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:13:17 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ unsigned int Span::longestSpan(void) const {
 	if (_elements.size() < 2)
 		throw InvalidSpanException();
 	
-	std::vector<int>::const_iterator max = std::max_element(_elements.begin(), _elements.end());
-	std::vector<int>::const_iterator min = std::min_element(_elements.begin(), _elements.end());
+	int max = *std::max_element(_elements.begin(), _elements.end());
+	int min = *std::min_element(_elements.begin(), _elements.end());
 
-	return *max - *min;
+	return max - min;
 }
 
 /* unsigned int Span::shortestSpan(void) const {
