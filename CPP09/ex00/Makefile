@@ -6,7 +6,7 @@
 #    By: albartol <albartol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/03 14:32:19 by albartol          #+#    #+#              #
-#    Updated: 2024/11/03 15:43:02 by albartol         ###   ########.fr        #
+#    Updated: 2024/11/08 16:50:54 by albartol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,12 @@ NAME := btc
 
 INCLUDE := BitcoinExchange.hpp
 
-all: $(NAME) $(INCLUDE)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $^ -o $@
 
-%.o: %.cpp
+%.o: %.cpp $(INCLUDE)
 	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 14:35:05 by albartol          #+#    #+#             */
-/*   Updated: 2024/11/04 17:51:47 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/08 18:45:13 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,47 @@
 # include <fstream>
 # include <string>
 # include <map>
+#include <sstream>
+
+#define MIN_YEAR 2000
+#define MAX_YEAR 2100
+#define BAD_DATE "bad_date"
 
 typedef std::map<std::string, std::string> storage;
+
+template<class T> std::string	to_string(const T& value) {
+	std::ostringstream oss;
+	oss << value;
+	return oss.str();
+}
+
+typedef struct s_date {
+	int	year;
+	int	month;
+	int	day;
+	s_date() {
+		year = 0;
+		month = 0;
+		day = 0;
+	}
+}	t_date;
 
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, std::string>	_data;
+		storage	_data;
 		bool	storeFile(std::ifstream &, char);
 		bool	checkFile(std::ifstream &) const;
 		bool	checkHead(std::string &, char, const char *s1, const char *s2) const;
 		double	getValue(std::string &) const;
 		std::string	getDate(std::string &) const;
+		std::string	getClosestDate(t_date, int*) const;
+		t_date	getLowerDate(t_date, int*) const;
+		t_date	getDateValues(const std::string &) const;
+		std::string	dateToStr(const t_date &) const;
+		bool	isLeapYear(const int) const;
 		bool	btc(std::ifstream &, char);
-		std::string	trim(std::string) const;
+		std::string	trimStr(std::string) const;
 	public:
 		BitcoinExchange(void);
 		BitcoinExchange(const BitcoinExchange &);
