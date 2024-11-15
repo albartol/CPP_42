@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:39:36 by albartol          #+#    #+#             */
-/*   Updated: 2024/11/12 17:47:33 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/15 20:18:17 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,53 @@ bool	PmergeMe::parseInput(std::string &input) {
 	return true;
 }
 
+static void	sort_pairs_first(std::vector<std::pair<int, int>> &pairs) {
+	if (pairs.size() <= 1)
+		return;
+	int	m = pairs.size() / 2;
+	std::vector<std::pair<int, int>>	first(pairs.begin(), pairs.begin() + m);
+	std::vector<std::pair<int, int>>	second(pairs.begin() + m, pairs.end());
+
+	sort_pairs_first(first);
+	sort_pairs_first(second);
+	
+	size_t	i = 0;
+	size_t	first_i = 0;
+	size_t	second_i = 0;
+	while (first_i < first.size() || second_i < second.size()) {
+
+		if (first_i < first.size() && second_i < second.size()) {
+
+			if (first[first_i].second < second[second_i].second)
+				pairs[i++] = first[first_i++];
+			else
+				pairs[i++] = second[second_i++];
+			continue;
+		}
+		if (first_i < first.size())
+			pairs[i++] = first[first_i++];
+		else if (second_i < second.size())
+			pairs[i++] = second[second_i++];
+	}
+}
+
 clock_t	PmergeMe::sortFirst(void) {
+	std::vector<std::pair<int, int>>	pairs;
+	int	last_val = -1;
+	
+	if (_first_data.size() % 2 != 0) {
+		last_val = _first_data.back();
+		_first_data.pop_back();
+	}
+	for (size_t i = 0; i < _first_data.size(); i += 2) {
+		if (_first_data[i] > _first_data[i + 1])
+			std::swap(_first_data[i], _first_data[i + 1]);
+		pairs.push_back(std::make_pair(_first_data[i], _first_data[i + 1]));
+	}
+	sort_pairs_first(pairs);
+	_first_data.clear();
+	_first_data.push_back(pairs[0].first);
+	
 	return clock();
 }
 
