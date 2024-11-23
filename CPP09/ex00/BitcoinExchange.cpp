@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 14:34:55 by albartol          #+#    #+#             */
-/*   Updated: 2024/11/08 18:45:47 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/23 20:10:40 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,6 +291,10 @@ bool	BitcoinExchange::storeFile(std::ifstream &src, char c) {
 			value = line.substr(split_pos + 1, line.size() - split_pos);
 			_data[key] = value;
 		}
+	}
+	if (_data.empty()) {
+		error("Database is empty");
+		return false;
 	}
 	return true;
 }

@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:39:47 by albartol          #+#    #+#             */
-/*   Updated: 2024/11/23 18:37:39 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/23 19:43:05 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ typename T::iterator binary_search(int num,
 		else
 			return pos;
 	}
-	if (num > *first) {
+	if (num > *first)
 		std::advance(first, 1);
-		return first;
-	}
 	return first;
 }
 
