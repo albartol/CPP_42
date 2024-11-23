@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:39:36 by albartol          #+#    #+#             */
-/*   Updated: 2024/11/15 20:18:17 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:50:10 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool	PmergeMe::parseInput(std::string &input) {
 	while (pos != std::string::npos) {
 		next_pos = input.find_first_of(' ', pos);
 		if (next_pos == std::string::npos)
-			next_pos = input.size() - 1;
+			next_pos = input.size();
 		if (next_pos - pos > 10)
 			return false;
 		for (size_t i = pos; i < next_pos; i++) {
@@ -59,15 +59,15 @@ bool	PmergeMe::parseInput(std::string &input) {
 	return true;
 }
 
-static void	sort_pairs_first(std::vector<std::pair<int, int>> &pairs) {
+static void	sort_pairs(std::vector<std::pair<int, int> > &pairs) {
 	if (pairs.size() <= 1)
 		return;
 	int	m = pairs.size() / 2;
-	std::vector<std::pair<int, int>>	first(pairs.begin(), pairs.begin() + m);
-	std::vector<std::pair<int, int>>	second(pairs.begin() + m, pairs.end());
+	std::vector<std::pair<int, int> >	first(pairs.begin(), pairs.begin() + m);
+	std::vector<std::pair<int, int> >	second(pairs.begin() + m, pairs.end());
 
-	sort_pairs_first(first);
-	sort_pairs_first(second);
+	sort_pairs(first);
+	sort_pairs(second);
 	
 	size_t	i = 0;
 	size_t	first_i = 0;
@@ -90,7 +90,10 @@ static void	sort_pairs_first(std::vector<std::pair<int, int>> &pairs) {
 }
 
 clock_t	PmergeMe::sortFirst(void) {
-	std::vector<std::pair<int, int>>	pairs;
+	if (_first_data.size() < 2)
+		return clock();
+
+	std::vector<std::pair<int, int> >	pairs;
 	int	last_val = -1;
 	
 	if (_first_data.size() % 2 != 0) {
@@ -102,14 +105,70 @@ clock_t	PmergeMe::sortFirst(void) {
 			std::swap(_first_data[i], _first_data[i + 1]);
 		pairs.push_back(std::make_pair(_first_data[i], _first_data[i + 1]));
 	}
-	sort_pairs_first(pairs);
+	sort_pairs(pairs);
 	_first_data.clear();
 	_first_data.push_back(pairs[0].first);
-	
+	for (size_t i = 0; i < pairs.size(); i++)
+		_first_data.push_back(pairs[i].second);
+
+	std::vector<int>::iterator it;
+
+	for (size_t i = 1; i < pairs.size(); i++) {
+		
+		it = binary_search<std::vector<int> >
+			(pairs[i].first, _first_data.begin(), _first_data.end());
+			
+		_first_data.insert(it, pairs[i].first);
+	}
+	if (last_val != -1) {
+		
+		it = binary_search<std::vector<int> >
+			(last_val, _first_data.begin(), _first_data.end());
+		
+		_first_data.insert(it, last_val);
+	}
 	return clock();
 }
 
 clock_t	PmergeMe::sortSecond(void) {
+	if (_second_data.size() < 2)
+		return clock();
+
+	std::vector<std::pair<int, int> >	pairs;
+	int	last_val = -1;
+	
+	if (_second_data.size() % 2 != 0) {
+		last_val = _second_data.back();
+		_second_data.pop_back();
+	}
+	std::vector<int> temp(_second_data.begin(), _second_data.end());
+	for (size_t i = 0; i < temp.size(); i += 2) {
+		if (temp[i] > temp[i + 1])
+			std::swap(temp[i], temp[i + 1]);
+		pairs.push_back(std::make_pair(temp[i], temp[i + 1]));
+	}
+	sort_pairs(pairs);
+	_second_data.clear();
+	_second_data.push_back(pairs[0].first);
+	for (size_t i = 0; i < pairs.size(); i++)
+		_second_data.push_back(pairs[i].second);
+
+	std::list<int>::iterator it;
+	
+	for (size_t i = 1; i < pairs.size(); i++) {
+		
+		it = binary_search<std::list<int> >
+			(pairs[i].first, _second_data.begin(), _second_data.end());
+		
+		_second_data.insert(it, pairs[i].first);
+	}
+	if (last_val != -1) {
+		
+		it = binary_search<std::list<int> >
+			(last_val, _second_data.begin(), _second_data.end());
+		
+		_second_data.insert(it, last_val);
+	}
 	return clock();
 }
 
@@ -125,11 +184,14 @@ void	PmergeMe::startPmergeMe(std::string input) {
 	
 	clock_t	start_first = clock();
 	clock_t first_time = sortFirst();
-
+	
 	clock_t	start_second = clock();
 	clock_t second_time = sortSecond();
 
-	std::cout << "After: ";
+	std::cout << "After: \n\tvector: ";
+	for (size_t i = 0; i < _first_data.size(); i++)
+		std::cout << _first_data[i] <<  " ";
+	std::cout << "\n\tlist: ";
 	for (size_t i = 0; i < _first_data.size(); i++)
 		std::cout << _first_data[i] <<  " ";
 	std::cout << "\n";

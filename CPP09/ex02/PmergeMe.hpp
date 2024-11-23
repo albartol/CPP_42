@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:39:47 by albartol          #+#    #+#             */
-/*   Updated: 2024/11/12 17:47:27 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:37:39 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,34 @@
 # include <algorithm>
 # include <iostream>
 # include <climits>
+# include <iterator>
 # include <time.h>
-// # include <sstream>
 # include <string>
 # include <vector>
 # include <list>
-// # include <deque>
+
+template <class T>
+typename T::iterator binary_search(int num,
+	typename T::iterator first, typename T::iterator last) {
+
+	typename T::iterator	pos;
+	while (std::distance(first, last) > 1) {
+		pos = first;
+		std::advance(pos, std::distance(first, last) / 2);
+		if (num > *pos)
+			first = pos;
+		else if (num < *pos)
+			last = pos;
+		else
+			return pos;
+	}
+	if (num > *first) {
+		std::advance(first, 1);
+		return first;
+	}
+	return first;
+}
+
 
 class PmergeMe
 {
