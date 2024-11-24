@@ -6,7 +6,7 @@
 /*   By: albartol <albartol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:39:36 by albartol          #+#    #+#             */
-/*   Updated: 2024/11/23 18:50:10 by albartol         ###   ########.fr       */
+/*   Updated: 2024/11/24 18:25:27 by albartol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,35 @@ static void	sort_pairs(std::vector<std::pair<int, int> > &pairs) {
 	}
 }
 
+static std::vector<int> getOrder(std::vector<std::pair<int, int> >	&pairs, int last_val)
+{
+	std::vector<int> final_order;
+	std::vector<std::pair<int, int> >::iterator it = pairs.begin() + 1;
+
+	size_t	sec = 0;
+	size_t	group_size = 0;
+	std::vector<int> group;
+
+	while (it != pairs.end()) {
+		if (sec % 2 == 0)
+			group_size = group_size * 2 + 2;
+		else
+			group_size = group_size * 2 - 2;
+		
+		for (size_t i = 0; i < group_size && it != pairs.end(); i++) {
+			group.push_back((*it).first);
+			it++;
+		}
+		std::reverse(group.begin(), group.end());
+		final_order.insert(final_order.end(), group.begin(), group.end());
+		group.clear();
+		sec++;
+	}
+	if (last_val != -1)
+		final_order.push_back(last_val);
+	return final_order;
+}
+
 clock_t	PmergeMe::sortFirst(void) {
 	if (_first_data.size() < 2)
 		return clock();
@@ -111,21 +140,17 @@ clock_t	PmergeMe::sortFirst(void) {
 	for (size_t i = 0; i < pairs.size(); i++)
 		_first_data.push_back(pairs[i].second);
 
+
+	std::vector<int> inser_order = getOrder(pairs, last_val);
+
 	std::vector<int>::iterator it;
 
-	for (size_t i = 1; i < pairs.size(); i++) {
+	for (size_t i = 0; i < inser_order.size(); i++) {
 		
 		it = binary_search<std::vector<int> >
-			(pairs[i].first, _first_data.begin(), _first_data.end());
+			(inser_order[i], _first_data.begin(), _first_data.end());
 			
-		_first_data.insert(it, pairs[i].first);
-	}
-	if (last_val != -1) {
-		
-		it = binary_search<std::vector<int> >
-			(last_val, _first_data.begin(), _first_data.end());
-		
-		_first_data.insert(it, last_val);
+		_first_data.insert(it, inser_order[i]);
 	}
 	return clock();
 }
@@ -153,21 +178,16 @@ clock_t	PmergeMe::sortSecond(void) {
 	for (size_t i = 0; i < pairs.size(); i++)
 		_second_data.push_back(pairs[i].second);
 
+	std::vector<int> inser_order = getOrder(pairs, last_val);
+
 	std::list<int>::iterator it;
-	
-	for (size_t i = 1; i < pairs.size(); i++) {
+
+	for (size_t i = 0; i < inser_order.size(); i++) {
 		
 		it = binary_search<std::list<int> >
-			(pairs[i].first, _second_data.begin(), _second_data.end());
-		
-		_second_data.insert(it, pairs[i].first);
-	}
-	if (last_val != -1) {
-		
-		it = binary_search<std::list<int> >
-			(last_val, _second_data.begin(), _second_data.end());
-		
-		_second_data.insert(it, last_val);
+			(inser_order[i], _second_data.begin(), _second_data.end());
+			
+		_second_data.insert(it, inser_order[i]);
 	}
 	return clock();
 }
