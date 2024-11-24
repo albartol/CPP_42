@@ -40,7 +40,7 @@ array
 easyfind
 span
 mutant_stack
-*.csv
+# *.csv
 btc
 RPN
 PmergeMe
